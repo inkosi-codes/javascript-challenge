@@ -66,10 +66,8 @@ filter.on("click", function() {
         ufoData(filterDate);
     }
 
-    // Top if only works for filtering the date
-
     else {
-        
+        tbody.html("No Data Avaiable for the requested Date");
     }
 });
 
