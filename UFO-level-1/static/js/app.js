@@ -1,3 +1,21 @@
+window.onload = function hide() {
+    document.getElementById('state-label').style.display = 'none';
+    document.getElementById('city-label').style.display = 'none';
+};
+
+function adv() {
+   var chk = document.getElementById("multi-search");
+
+   if(chk.checked == true){
+    document.getElementById('state-label').style.display = 'block';
+    document.getElementById('city-label').style.display = 'block';
+   }
+   else{
+    document.getElementById('state-label').style.display = 'none';
+    document.getElementById('city-label').style.display = 'none';
+   };
+};
+
 var tbody = d3.select("tbody");
 
 
@@ -22,10 +40,10 @@ for (i = 0; i < data.length; i++) {
     }
 };
 
-    for (i = 0; i < opt.length; i++) {
-        var val = opt[i].toUpperCase();
-        var el = document.createElement("option");
-        el.textContent = val;
-        el.value = val;
-        select.appendChild(el);
-    }
+for (i = 0; i < opt.length; i++) {
+    var val = opt[i].toUpperCase();
+    var el = document.createElement("option");
+    el.textContent = val;
+    el.value = val;
+    select.appendChild(el);
+}
