@@ -41,7 +41,7 @@
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
                         <label for="date" id="date-label">Choose a Date</label>
-                        <input class="form-control" id="datetime" type="date" min="2010-01-01" max="2010-01-13">
+                        <input class="form-control" id="datetime" type="date" required pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" min="2010-01-01" max="2010-01-13">
                       </li>
                       <li class="filter list-group-item" id="state-label">
                         <label for="state">Select a State</label>
