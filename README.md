@@ -15,16 +15,16 @@ You can handle this... right? The planet Earth needs to know what we have found!
 
 ### Tasks
 
-* _Table renders without error on load
-* Include all column data
-* Clears table before rendering
-* Rerender table with filtered data_
+* _Table renders without error on load_
+* _Include all column data_
+* _Clears table before rendering_
+* _Rerender table with filtered data_
 
 ## Filtering Data
 
 ### Tasks
 
-* _Event handler for "Apply filter" button that calls function
-* Successfully grabs data based on user input
-* Use d3 filter method in order to facilitate pulling data
-* Use d3 to prevent reload of entire page_
+* _Event handler for "Apply filter" button that calls function_
+* _Successfully grabs data based on user input_
+* _Use d3 filter method in order to facilitate pulling data_
+* _Use d3 to prevent reload of entire page_
