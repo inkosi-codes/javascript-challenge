@@ -42,7 +42,7 @@ var ufoData = (getData) => {
 };
 ufoData(tableData);
 
-// Create event for date selection filter of dataset
+// Create event for selection filtering of dataset
 var filter = d3.select("#filter-btn");
 
 
