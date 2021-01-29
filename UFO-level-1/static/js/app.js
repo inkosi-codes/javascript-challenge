@@ -59,10 +59,10 @@ filter.on("click", function () {
     var inputElementCity = d3.select("#city");
     var inputValueCity = inputElementCity.property("value");
 
-    if (chk.checked !== true) {
-        var date = new Date(inputValueDate);
+    var date = new Date(inputValueDate);
+    var inputValueDate = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
 
-        var inputValueDate = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
+    if (chk.checked !== true) {
 
         var filterDate = tableData.filter(tableData => tableData.datetime === inputValueDate);
 
@@ -79,7 +79,13 @@ filter.on("click", function () {
         }
     }
     else {
-        tbody.html("");
+        combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
+            && tableData.city.includes(inputValueCity.toLowerCase())
+            && tableData.datetime.includes(inputValueDate));
+
+        ufoData(combindedData);
+
+
     };
 });
 
