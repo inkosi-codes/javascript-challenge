@@ -44,7 +44,7 @@ ufoData(tableData);
 
 var filter = d3.select("#filter-btn");
 
-filter.on("click", function() {
+filter.on("click", function () {
     tbody.html("");
 
     d3.event.preventDefault();
@@ -53,7 +53,7 @@ filter.on("click", function() {
 
     var date = new Date(inputValue);
 
-    var inputValue = date.toLocaleDateString('en-US', {timeZone: 'UTC'});
+    var inputValue = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
 
     var filterDate = tableData.filter(tableData => tableData.datetime === inputValue);
 
@@ -70,6 +70,15 @@ filter.on("click", function() {
         tbody.html("No Data Avaiable for the requested Date");
     }
 });
+
+var reset = d3.select("#reset-btn");
+
+reset.on("click", function () {
+    d3.event.preventDefault();
+
+    tbody.html("");
+    ufoData(tableData);
+})
 
 // Used to populate the dropdown box with unique values for state abbrv
 var select = document.getElementById('state');
