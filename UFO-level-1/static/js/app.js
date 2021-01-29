@@ -47,6 +47,7 @@ var filter = d3.select("#filter-btn");
 
 
 filter.on("click", function () {
+    d3.event.preventDefault();
     tbody.html("");
 
     var inputElementDate = d3.select("#datetime");
@@ -59,8 +60,6 @@ filter.on("click", function () {
     var inputValueCity = inputElementCity.property("value");
 
     if (chk.checked !== true) {
-        d3.event.preventDefault();
-
         var date = new Date(inputValueDate);
 
         var inputValueDate = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
