@@ -7,8 +7,9 @@ window.onload = function hide() {
 };
 
 // If user needs to use advanced search functions once check box is selected display html elements
+var chk = document.getElementById("multi-search");
+
 function adv() {
-    var chk = document.getElementById("multi-search");
 
     if (chk.checked == true) {
         document.getElementById('state-label').style.display = 'block';
@@ -44,31 +45,43 @@ ufoData(tableData);
 // Create event for date selection filter of dataset
 var filter = d3.select("#filter-btn");
 
+
 filter.on("click", function () {
     tbody.html("");
 
-    d3.event.preventDefault();
-    var inputElement = d3.select("#datetime");
-    var inputValue = inputElement.property("value");
+    var inputElementDate = d3.select("#datetime");
+    var inputValueDate = inputElementDate.property("value");
 
-    var date = new Date(inputValue);
+    var inputElementState = d3.select("#state");
+    var inputValueState = inputElementState.property("value");
 
-    var inputValue = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
+    var inputElementCity = d3.select("#city");
+    var inputValueCity = inputElementCity.property("value");
 
-    var filterDate = tableData.filter(tableData => tableData.datetime === inputValue);
+    if (chk.checked !== true) {
+        d3.event.preventDefault();
 
-    let response = {
-        filterDate
+        var date = new Date(inputValueDate);
+
+        var inputValueDate = date.toLocaleDateString('en-US', { timeZone: 'UTC' });
+
+        var filterDate = tableData.filter(tableData => tableData.datetime === inputValueDate);
+
+        let response = {
+            filterDate
+        }
+
+        if (response.filterDate.length !== 0) {
+            ufoData(filterDate);
+        }
+
+        else {
+            tbody.html("No Data Avaiable for the requested Date");
+        }
     }
-
-
-    if (response.filterDate.length !== 0) {
-        ufoData(filterDate);
-    }
-
     else {
-        tbody.html("No Data Avaiable for the requested Date");
-    }
+        tbody.html("");
+    };
 });
 
 // Create event for user to reset table with entire dataset
