@@ -41,7 +41,7 @@ var ufoData = (getData) => {
 };
 ufoData(tableData);
 
-
+// Create event for date selection filter of dataset
 var filter = d3.select("#filter-btn");
 
 filter.on("click", function () {
@@ -71,6 +71,7 @@ filter.on("click", function () {
     }
 });
 
+// Create event for user to reset table with entire dataset
 var reset = d3.select("#reset-btn");
 
 reset.on("click", function () {
