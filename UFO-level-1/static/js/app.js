@@ -81,12 +81,12 @@ filter.on("click", function () {
     else {
         if (!inputValueDate) {
             combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
-            && tableData.city.includes(inputValueCity.toLowerCase())
-            && tableData.datetime.includes(inputValueDate));
+                && tableData.city.includes(inputValueCity.toLowerCase())
+                && tableData.datetime.includes(inputValueDate));
         }
-        else{
+        else {
             combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
-            && tableData.city.includes(inputValueCity.toLowerCase()));
+                && tableData.city.includes(inputValueCity.toLowerCase()));
         }
 
 
