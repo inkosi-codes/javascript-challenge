@@ -79,15 +79,24 @@ filter.on("click", function () {
         }
     }
     else {
-        combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
+        if (!inputValueDate) {
+            combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
             && tableData.city.includes(inputValueCity.toLowerCase())
             && tableData.datetime.includes(inputValueDate));
+        }
+        else{
+            combindedData = tableData.filter(tableData => tableData.state.includes(inputValueState.toLowerCase())
+            && tableData.city.includes(inputValueCity.toLowerCase()));
+        }
+
 
         ufoData(combindedData);
 
 
     };
 });
+
+
 
 // Create event for user to reset table with entire dataset
 var reset = d3.select("#reset-btn");
@@ -97,6 +106,9 @@ reset.on("click", function () {
 
     tbody.html("");
     ufoData(tableData);
+    document.getElementById('datetime').value = '';
+    document.getElementById('state').value = '';
+    document.getElementById('city').value = '';
 })
 
 // Used to populate the dropdown box with unique values for state abbrv
